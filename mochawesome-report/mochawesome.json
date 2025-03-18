@@ -1,0 +1,204 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 4,
+    "pending": 0,
+    "failures": 2,
+    "start": "2024-03-19T04:30:30.606Z",
+    "end": "2024-03-19T04:30:56.697Z",
+    "duration": 26091,
+    "testsRegistered": 6,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "cc31f2a3-ee8b-4706-89b5-a112eab5953c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Login_Scenario.cy.js",
+      "file": "cypress\\e2e\\Login_Scenario.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a790c739-53e4-4de8-bbef-0351c4284a4c",
+          "title": "Scenario Test Login Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Akses Login Page",
+              "fullTitle": "Scenario Test Login Page Akses Login Page",
+              "timedOut": null,
+              "duration": 922,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Arrange\ncy.visit(_data.data.link.testing2);\n//Assert\ncy.get('#logo');",
+              "err": {},
+              "uuid": "e4dc38b7-0d76-4997-8b9a-38ee69327cdd",
+              "parentUUID": "a790c739-53e4-4de8-bbef-0351c4284a4c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login Dashboard with Valid Credential",
+              "fullTitle": "Scenario Test Login Page Login Dashboard with Valid Credential",
+              "timedOut": null,
+              "duration": 8226,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//Arrange\ncy.visit(_data.data.link.testing2);\n//Act\ncy.get('#logo');\ncy.get('#login-username').type('dickytester');\ncy.get('#login-password').type('Admin123');\ncy.get('#shift').select('Shift 1');\ncy.get('#submit').click();\ncy.wait(2000);\ncy.get('#login_staffnama').click();\ncy.get('[style=\"padding:2.5%\"] > a').click();\ncy.contains('Ya').click();\ncy.clearAllCookies();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 5000ms: Expected to find element: `#login_staffnama`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 5000ms: Expected to find element: `#login_staffnama`, but never found it.\n    at Context.eval (webpack://cypress-basic/./cypress/e2e/Login_Scenario.cy.js:24:7)",
+                "diff": null
+              },
+              "uuid": "0de9bda1-dcb5-41a9-9beb-252b9bb9d0cd",
+              "parentUUID": "a790c739-53e4-4de8-bbef-0351c4284a4c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login Dashbard with no Shift",
+              "fullTitle": "Scenario Test Login Page Login Dashbard with no Shift",
+              "timedOut": null,
+              "duration": 3136,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Arrange\ncy.visit(_data.data.link.testing2);\n//Act\ncy.get('#logo');\ncy.get('#login-username').type('dickytester');\ncy.get('#login-password').type('Admin123');\ncy.get('#submit').click();\n//Assert\ncy.get('#shift-error').should('contain', 'This field is required.');\ncy.wait(2000);",
+              "err": {},
+              "uuid": "3c3ce93a-9322-44ed-8e3b-7adb64a84baf",
+              "parentUUID": "a790c739-53e4-4de8-bbef-0351c4284a4c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login Dashboard with Invalid Username, valid Password",
+              "fullTitle": "Scenario Test Login Page Login Dashboard with Invalid Username, valid Password",
+              "timedOut": null,
+              "duration": 3099,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Arrange\ncy.visit(_data.data.link.testing2);\n//Act\ncy.get('#logo');\ncy.get('#login-username').type('cobacoba');\ncy.get('#login-password').type('Admin123');\ncy.get('#shift').select('Shift 1');\ncy.get('#submit').click();\n//Assert\ncy.get('[data-notify=\"message\"]').should('contain', 'User atau password salah !');\ncy.wait(2000);",
+              "err": {},
+              "uuid": "49ba44d7-9713-44ae-b5db-ee9a17a9e88d",
+              "parentUUID": "a790c739-53e4-4de8-bbef-0351c4284a4c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login Dashboard with valid Email, invalid Password",
+              "fullTitle": "Scenario Test Login Page Login Dashboard with valid Email, invalid Password",
+              "timedOut": null,
+              "duration": 6109,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//Arrange\ncy.visit(_data.data.link.testing2);\n//Act\ncy.get('#logo');\ncy.get('#login-username').type('dickytester');\ncy.get('#login-password').type('staging123');\ncy.get('#shift').select('Shift 1');\ncy.get('#submit').click();\n//Assert\ncy.get('[data-notify=\"message\"]').should('contain', 'User atau password salah !');\ncy.wait(2000);",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 5000ms: expected '<span>' to contain 'User atau password salah !'",
+                "estack": "AssertionError: Timed out retrying after 5000ms: expected '<span>' to contain 'User atau password salah !'\n    at Context.eval (webpack://cypress-basic/./cypress/e2e/Login_Scenario.cy.js:70:38)",
+                "diff": null
+              },
+              "uuid": "6df52757-082d-4994-bb4a-65e86e7b630a",
+              "parentUUID": "a790c739-53e4-4de8-bbef-0351c4284a4c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login Dashboard with Empty Credentials",
+              "fullTitle": "Scenario Test Login Page Login Dashboard with Empty Credentials",
+              "timedOut": null,
+              "duration": 2725,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Arrange\ncy.visit(_data.data.link.testing2);\n//Act\ncy.get('#logo');\ncy.get('#login-username').click();\ncy.get('#login-password').click();\ncy.get('#shift').select('Shift 1');\ncy.get('#submit').click();\n//Assert\ncy.get('#login-username-error').should('contain', 'Silakan memasukkan username');\ncy.get('#login-password-error').should('contain', 'Silakan memasukkan password');\ncy.wait(2000);",
+              "err": {},
+              "uuid": "17974700-0301-4762-9136-ffbf4311fff7",
+              "parentUUID": "a790c739-53e4-4de8-bbef-0351c4284a4c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e4dc38b7-0d76-4997-8b9a-38ee69327cdd",
+            "3c3ce93a-9322-44ed-8e3b-7adb64a84baf",
+            "49ba44d7-9713-44ae-b5db-ee9a17a9e88d",
+            "17974700-0301-4762-9136-ffbf4311fff7"
+          ],
+          "failures": [
+            "0de9bda1-dcb5-41a9-9beb-252b9bb9d0cd",
+            "6df52757-082d-4994-bb4a-65e86e7b630a"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 24217,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
